@@ -8,5 +8,10 @@
   "dependencies": {
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
+  }, "scripts": {
+    "server": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
