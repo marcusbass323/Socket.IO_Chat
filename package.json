@@ -1,0 +1,12 @@
+{
+  "name": "itsabet",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/marcusbass323/itsabet.git",
+  "author": "<Bass.Marcus@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
