@@ -1,6 +1,7 @@
         <html>
         <head>
         <title>Socket IO Chat</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
@@ -8,38 +9,50 @@
             body {
                 margin-top: 30px;
             }
-            #messageArea {
-                display: none;
+
+            .usernameInput {
+                display: flex;
+                flex-direction: row;
             }
+
         </style>        
         </head>
         <body>
             <div class="container">
+                
+                <!-- ENTER USERNAME TO ENTER CHAT -->
                 <div id="userFormArea" class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <form id="userForm">
-                            <label>Enter Username</label>
-                            <input class="form-control" id="username" />
-                            <br/>
-                            <input type="submit" class="btn btn-primary" value
+                            <div class="usernameInput">
+                                <h3>Username:</h3>
+                                <input class="form-control" id="username" />
+                            
+                            <input placeholder="Enter username" type="submit" class="btn btn-primary" value
                             = "Login" />
+                        </div>
                         </form>
                     </div>
                 </div>
+
+                <!-- LISTS ONLINE USERS -->
                 <div id="messageArea" class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card bg-light">
-                            <h3>Players Online:</h3>
+                            <h3>Online users:</h3>
                             <ul class="list-group" id="users"></ul>
                         </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="chat" id="chat"></div>
+                    
+                    <!-- CHAT AREA -->
+                    <div class="col-md-6">
+                        
 
                         <form id="messageForm">
                             <div class="form-group">
-                                <label>Enter Message</label>
-                                <textarea class="form-control" id="message"></textarea>
+                                <label class="card bg-light"><h3>Enter Message</h3></label>
+                                <div class="chat" id="chat"></div>
+                                <textarea class="form-control" id="message" ></textarea>
                                 <br />
                                 <input type="submit" class="btn btn-primary" value="Send Message" />
                             </div>
@@ -49,6 +62,9 @@
             </div>
         </body>  
             <script>
+
+            
+
             $(function(){
                 var socket = io.connect();
                 var $messageForm = $('#messageForm');
@@ -67,7 +83,7 @@
                 });
 
                 socket.on('new message', function(data){
-                    $chat.append('<div><strong>'+data.user+'</strong>:'+data.msg+'</div>');
+                    $chat.append('<div class="chatMessage"><strong>' +data.user+ '</strong>:' +data.msg+ '</div>');
                 });
 
                 $userForm.submit(function(e){
