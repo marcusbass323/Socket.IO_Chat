@@ -1,18 +1,57 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>IO Chat</h1>
-        <script src="" async defer></script>
-    </body>
-</html>
+        <html>
+        <head>
+        <title>It's A Bet</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <style>
+            body {
+                margin-top: 30px;
+            }
+        </style>        
+        </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="well">
+                            <h3>Users Online</h3>
+                            <ul class="list-group" id="users"></ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="chat" id="chat"></div>
+
+                        <form id="messageForm">
+                            <div class="form-group">
+                                <label>Enter Message</label>
+                                <textarea class="form-control" id="message"></textarea>
+                                <br />
+                                <input type="submit" class="btn btn-primary" value="Send Message" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </body>
+        
+        
+        
+        
+            <script>
+            $(function(){
+                var socket = io.connect();
+                var $messageForm = $('#messageForm');
+                var $message = $('#message');
+                var $chat = $('#chat');
+
+                $messageForm.submit(function(e){
+                    e.preventDefault();
+                    socket.emit('send message', $message.val());
+                    $message.val('');
+                })
+            });
+
+        </script>
+        </body>    
+  </html>
