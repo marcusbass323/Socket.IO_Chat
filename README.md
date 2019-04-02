@@ -1,6 +1,13 @@
 <h1>Socket IO Chat</h1>
 
-<h2>This web-based chat was built with Node.js, jQuery, Bootstrap and Socket.IO.</h2>
+<h2>Tech stack</h2>
+<ul>
+  <li>Node.js</li>
+  <li>JQuery</li>
+  <li>Bootstrap</li>
+  <li>Socket.IO</li>
+  </ul>
+
 
 <p>1- The user must initiate the chat by entering a username. All user parties
 are notified of online status on the left area of the window.</p>
