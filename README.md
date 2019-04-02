@@ -1,6 +1,6 @@
 <h1>Socket IO Chat</h1>
 
-<h2>Tech stack</h2>
+<h2>Tech stack:</h2>
 <ul>
   <li>Node.js</li>
   <li>JQuery</li>
