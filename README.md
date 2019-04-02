@@ -4,4 +4,4 @@ This web-based chat was built with Node.js, jQuery, Bootstrap and Socket.IO.
 
 <p>1- The user must initiate the chat by entering a username. All user parties
 are notified of online status on the left area of the window.</p>
-<img src="https://media.giphy.com/media/MSiNqiFSDEh66isnll/giphy.gif"/>
+<img src="https://media.giphy.com/media/dnkm29bMC0huitVbci/giphy.gif"/>
