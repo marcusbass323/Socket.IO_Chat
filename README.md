@@ -20,3 +20,4 @@ are notified of online status on the left area of the window.</p>
 </p>
   <img src="https://media.giphy.com/media/ZvHbk0W1z7R4zC6frp/giphy.gif"/>
   
+Thank you for your interest.
